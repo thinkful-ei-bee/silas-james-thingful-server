@@ -16,6 +16,11 @@ thingsRouter
 
 thingsRouter
   .route('/:thing_id')
+  .all((req, res, next) => {
+    console.log('i am here')
+    next()
+  })
+
   .all(requireAuth)
   .all(checkThingExists)
   .get((req, res) => {
